@@ -1,1 +1,55 @@
+Documentation du Modèle de Machine Learning
+
+1. Objectif du Modèle
+
+Le modèle de machine learning est conçu pour prédire les résultats des services dans les matchs de tennis. 
+L'objectif est de déterminer si un service donné aboutira à une faute, un ace, ou un service réussi que l'adversaire renvoie, en se basant sur des données historiques de matchs.
+
+2. Données Utilisées
+
+Les données proviennent du fichier atp_matches_2023.csv, qui contient des informations détaillées sur les matchs de tennis de l'année 2023, incluant les joueurs, les scores, et les statistiques de service. Les principales caractéristiques utilisées incluent :
+
+Le joueur qui sert
+La vitesse du service
+Le type de surface du court
+Les conditions météorologiques (si disponibles)
+Statistiques historiques des joueurs
+
+3. Prétraitement des Données
+
+Le prétraitement comprend :
+
+Nettoyage des données : Suppression des valeurs manquantes, traitement des valeurs aberrantes.
+Sélection des caractéristiques : Choix des variables basé sur leur corrélation avec le résultat du service et l'importance perçue.
+Encodage : Transformation des variables catégorielles en format numérique utilisable par les modèles ML.
+Normalisation : Standardisation des caractéristiques pour une meilleure performance du modèle.
+
+4. Choix du Modèle
+
+Le RandomForestClassifier a été choisi pour plusieurs raisons :
+
+Robustesse : Capable de gérer des bases de données hétérogènes et complexes.
+Moins de surajustement : Bonnes performances en généralisation grâce à la méthode d'ensemble.
+Importance des caractéristiques : Fournit un aperçu de l'importance des différentes caractéristiques pour les prédictions.
+
+5. Entraînement du Modèle
+
+Le modèle a été entraîné en utilisant une division de données en ensemble d'entraînement et de test (typiquement 80/20). train_test_split de sklearn a été utilisé pour cette séparation. L'entraînement a impliqué le réglage des hyperparamètres pour optimiser la précision et minimiser le surajustement.
+
+6. Évaluation du Modèle
+
+Les métriques de performance utilisées incluent :
+
+Précision (Accuracy) : Pourcentage de prédictions correctes par rapport au total.
+Rapport de classification : Fournit la précision, le rappel et le score F1 pour chaque classe prédite.
+Matrice de confusion : Pour visualiser les performances du modèle sur chaque classe.
+
+7. Résultats et Discussion
+
+Les résultats montrent une précision de X%, indiquant une efficacité Y dans la prédiction des résultats de service. Les erreurs de type I (faux positifs) et de type II (faux négatifs) ont été analysées pour comprendre les limites du modèle. Des discussions sur les cas où le modèle échoue pourraient aider à identifier des améliorations potentielles.
+
+8. Conclusion et Perspectives
+
+Le modèle actuel offre une base solide pour la prédiction des résultats de service au tennis, avec des possibilités d'amélioration en intégrant plus de données, en affinant les caractéristiques, ou en explorant d'autres algorithmes de machine learning.
+
 

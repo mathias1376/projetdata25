@@ -65,15 +65,13 @@ Puis ouvrez `code_final.ipynb` et exécutez les cellules dans l'ordre.
 
 5. **Modélisation** :
    - Test de plusieurs algorithmes de Machine Learning, notamment :
-     - **Random Forest** pour une première approche simple mais robuste.
-     - **LASSO Regression** pour une meilleure sélection des variables et une meilleure précision.
-     - **XGBoost** pour optimiser les performances prédictives.
-   - Comparaison des performances via des métriques comme l'accuracy et le recall.
+     - En premier lieu avec **Random Forest** pour une première approche simple mais robuste avec **LASSO Regression** pour une meilleure sélection.
+     - En deuxième lieu avec **Random Forest** et **LASSO Regression** avec plus de variables et d'autres selections.
+     - Enfin avec **XGBoost** pour comparaison avec **Random Forest**
 
 6. **Exploration approfondie des données** :
-   - Création de graphiques plus précis.
-   - Évaluation via `classification_report` et `confusion_matrix`.
-   - Ajustement des hyperparamètres pour améliorer la précision du modèle.
+   - Création de graphiques plus précis, comme la proportion d'aces par nationalité ou par tranche d'âge ou du type de best of (3 ou 5).
+   - Essais de modélisation sur davantage de variables (âge, taille, historique des 10 derniers matchs...)
   
 7. **Prédiction et validation** :
    - Génération des prédictions sur l'ensemble de test.

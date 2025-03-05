@@ -1,9 +1,34 @@
 Documentation du Modèle de Machine Learning
 
+
 1. Objectif du Modèle
 
-Le modèle de machine learning est conçu pour prédire les résultats des services dans les matchs de tennis. 
-L'objectif est de déterminer si un service donné aboutira à une faute, un ace, ou un service réussi que l'adversaire renvoie, en se basant sur des données historiques de matchs.
+Dans le cadre de ce projet, nous avons cherché à répondre à la problématique suivante :
+"Comment un modèle d'intelligence artificielle peut-il améliorer la précision des prédictions Over/Under sur le nombre d'aces dans un match de tennis afin 
+d’optimiser les décisions des parieurs et des opérateurs de paris sportifs ?"
+
+L'objectif est de concevoir un modèle de machine learning permettant de prédire si un match de tennis comportera un nombre élevé ou faible d’aces, 
+en se basant sur les données historiques des matchs ATP. Cette information est essentielle pour les acteurs du marché des paris sportifs, 
+qui doivent ajuster leurs cotes et stratégies en fonction de prédictions fiables.
+
+
+2. Démarche et Approche Méthodologique
+Notre démarche s'est articulée autour de plusieurs étapes :
+
+a. Compréhension, Exploration et Utilisation des Données
+Avant toute modélisation, il était crucial d’analyser la nature des données disponibles. Le dataset utilisé, issu de matchs ATP, contient des informations sur :
+
+Les joueurs (âge, taille, classement ATP)
+Les matchs (type de surface, durée, gagnant/perdant)
+Les performances au service (nombre d’aces, double fautes, pourcentage de premiers services réussis, etc.)
+Une première analyse exploratoire a permis de :
+
+Visualiser la distribution des aces en fonction des surfaces de jeu
+Identifier les corrélations entre les variables
+Repérer d'éventuelles incohérences ou valeurs aberrantes
+
+
+
 
 2. Données Utilisées
 
@@ -53,3 +78,137 @@ Les résultats montrent une précision de X%, indiquant une efficacité Y dans l
 Le modèle actuel offre une base solide pour la prédiction des résultats de service au tennis, avec des possibilités d'amélioration en intégrant plus de données, en affinant les caractéristiques, ou en explorant d'autres algorithmes de machine learning.
 
 
+
+
+
+
+
+
+
+
+1. Contexte et Objectifs
+Dans le cadre de ce projet, nous avons cherché à répondre à la question suivante :
+"Comment un modèle d'intelligence artificielle peut-il améliorer la précision des prédictions Over/Under sur le nombre d'aces dans un match de tennis afin d’optimiser les décisions des parieurs et des opérateurs de paris sportifs ?"
+
+L'objectif est de concevoir un modèle de machine learning permettant de prédire si un match de tennis comportera un nombre élevé ou faible d’aces, en se basant sur les données historiques des matchs ATP. Cette information est essentielle pour les acteurs du marché des paris sportifs, qui doivent ajuster leurs cotes et stratégies en fonction de prédictions fiables.
+
+2. Démarche et Approche Méthodologique
+Notre démarche s'est articulée autour de plusieurs étapes essentielles :
+
+2.1. Compréhension et Exploration des Données
+Avant toute modélisation, il était crucial d’analyser la nature des données disponibles. Le dataset utilisé, issu de matchs ATP, contient des informations sur :
+
+Les joueurs (âge, taille, classement ATP)
+Les matchs (type de surface, durée, gagnant/perdant)
+Les performances au service (nombre d’aces, double fautes, pourcentage de premiers services réussis, etc.)
+Une première analyse exploratoire a permis de :
+
+Visualiser la distribution des aces en fonction des surfaces de jeu
+Identifier les corrélations entre les variables
+Repérer d'éventuelles incohérences ou valeurs aberrantes
+2.2. Prétraitement et Sélection des Variables
+Le prétraitement a consisté à :
+
+Gérer les valeurs manquantes : suppression ou imputation selon le cas.
+Encodage des variables catégorielles : transformation des types de surfaces et noms de joueurs en variables numériques.
+Standardisation des variables numériques : utilisation de StandardScaler pour homogénéiser les valeurs.
+Création d’une variable cible : transformation du nombre d’aces en une variable binaire indiquant si le nombre dépasse un certain seuil (Over/Under).
+Un sélectionneur de variables basé sur LASSO a ensuite été utilisé pour identifier les caractéristiques les plus influentes.
+
+2.3. Modélisation et Expérimentations
+Différents modèles ont été testés afin d’optimiser la précision des prédictions :
+
+Modèle de base : Random Forest
+
+Bonne gestion des données hétérogènes
+Identification des variables les plus influentes
+Résultats intéressants mais pouvant être améliorés
+Autres modèles explorés :
+
+Régression logistique : rapide, mais trop simpliste pour capter la complexité des données.
+Support Vector Machine (SVM) : efficace mais très lent sur de grandes bases.
+XGBoost : bonnes performances après tuning des hyperparamètres.
+Réseaux de neurones : testé via un MLP, mais nécessitait plus de données et un réglage plus fin.
+Le RandomForestClassifier a finalement été retenu comme modèle principal en raison de son bon équilibre entre performance et interprétabilité.
+
+2.4. Évaluation et Analyse des Résultats
+Les performances du modèle ont été mesurées à l'aide de :
+
+Accuracy Score : mesure la proportion de prédictions correctes.
+F1 Score : permet d'évaluer la précision et le rappel simultanément.
+Matrice de confusion : identification des erreurs courantes dans les classifications.
+Résultats obtenus :
+
+Score de précision global : X%
+Bonne capacité du modèle à identifier les matchs avec un nombre élevé d’aces.
+Difficultés à prédire les matchs où les joueurs ont des styles plus variés ou jouent sur des surfaces spécifiques.
+Des axes d'amélioration ont été identifiés : ✅ Prendre en compte l’historique des performances des joueurs.
+✅ Explorer des méthodes de deep learning pour mieux capturer les tendances complexes.
+✅ Intégrer des données supplémentaires (conditions météorologiques, type de tournoi, altitude).
+
+3. Documentation Technique : Pipeline de Données et Modèle
+3.1. Pipeline de Données
+Le traitement des données suit un pipeline structuré :
+
+Chargement et exploration des données
+
+Lecture du fichier atp_matches_2023.csv
+Analyse statistique et détection des valeurs aberrantes
+Prétraitement
+
+Nettoyage des données
+Transformation des variables catégorielles
+Standardisation des variables numériques
+Sélection des variables
+
+Analyse de l’importance des features avec LASSO et Random Forest
+Séparation des données
+
+Division en jeu d'entraînement (80%) et jeu de test (20%)
+Modélisation
+
+Entraînement du modèle RandomForestClassifier
+Comparaison avec d'autres modèles pour validation
+Évaluation
+
+Calcul des métriques de performance
+Analyse des résultats et visualisation
+3.2. Documentation du Modèle
+Modèle principal : Random Forest
+Le modèle utilisé est un Random Forest Classifier, qui repose sur la combinaison de plusieurs arbres de décision pour améliorer la robustesse des prédictions.
+
+Hyperparamètres utilisés :
+
+n_estimators = 100
+max_depth = None
+min_samples_split = 2
+min_samples_leaf = 1
+random_state = 42
+Pourquoi ce choix ?
+
+Réduit le risque de sur-apprentissage grâce à la méthode d’ensemble.
+Identifie les variables les plus influentes.
+Facile à interpréter et ajuster.
+Résultats du modèle :
+
+Feature Importance : Les variables les plus impactantes sont la surface de jeu, le classement ATP et la taille des joueurs.
+Bonnes performances générales, mais amélioration possible avec des modèles plus avancés.
+4. Pistes Explorées et Tests Non Conclusifs
+Tout au long du projet, plusieurs approches ont été tentées mais n'ont pas abouti aux résultats escomptés :
+
+Test d’une régression linéaire pour prédire directement le nombre d’aces
+
+Résultats médiocres, car les distributions des aces sont très dispersées.
+Introduction d’un historique des 10 derniers matchs
+
+Peu de gain en précision, probablement en raison d’un manque de données complètes.
+Test d’un modèle basé uniquement sur les caractéristiques des joueurs
+
+Mauvaise performance, car les conditions de jeu influencent fortement le nombre d’aces.
+5. Conclusion et Perspectives
+Le modèle développé offre une première approche viable pour la prédiction Over/Under du nombre d’aces dans un match de tennis. Cependant, plusieurs axes d’amélioration restent envisageables :
+
+Enrichissement des données : Ajouter des saisons précédentes, conditions météo, type de tournoi.
+Optimisation des hyperparamètres : Test plus approfondi des paramètres via GridSearchCV.
+Exploration d’algorithmes plus avancés : LSTM pour capturer l’évolution temporelle des performances des joueurs.
+Ce projet démontre l’intérêt du machine learning pour affiner les stratégies des parieurs et ouvre des perspectives vers des modèles plus complexes.

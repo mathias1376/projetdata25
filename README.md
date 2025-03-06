@@ -44,11 +44,13 @@ Puis ouvrez `code_final.ipynb` et exécutez les cellules dans l'ordre.
 ```
 /
 |-- ML_Documentation/           # Explication de notre modèle, de notre démarche, de notre réflexion et de nos résultats avec leurs analyses.
+|-- PrepareData.ipynb           # Code permettant de préparer le dataset au ML.
 |-- README.md/                  # Documentation technique pour utiliser notre modèle de machine learning.
-|-- atp_matches_2023.csv        # Pipeline de données exploitable.
-|-- code_final.ipynb            # Code source dans son intégralité.
-|-- preprocess.ipynb            # Ebauches ayant servi à construire le code final.
-|-- processed_tennis_data.csv   # Données brutes extraites pour notre modèle.
+|-- atp_matches_2023.csv        # Pipeline de données de départ.
+|-- cleanData.csv               # Dataset train_data mis en forme pour le ML.
+|-- code_final.ipynb            # Code source pour l'analyse des données.
+|-- entrainement_ML.ipynb       # Entrainement du modèle de ML.
+|-- train_data.csv              # Données brutes extraites pour notre modèle.
 ```
 
 ### 3. Fonctionnement du Modèle
@@ -78,10 +80,11 @@ Puis ouvrez `code_final.ipynb` et exécutez les cellules dans l'ordre.
    - Création de graphiques plus précis, comme la proportion d'aces par nationalité ou par tranche d'âge ou du type de best of (3 ou 5).
    - Essais de modélisation sur davantage de variables (âge, taille, historique des 10 derniers matchs...)
   
-7. **Prédiction et validation** :
+7. **Nouveau modèle de ML entrainé** :
+   - Les données sont cette fois-ci mieux traitées et nettoyées et davantage en relation avec la problématique.
+   - 
+
+8. **Prédiction et validation** :
    - Génération des prédictions sur l'ensemble de test.
-   - Évaluation via `classification_report` et `confusion_matrix`.
    - Ajustement des hyperparamètres pour améliorer la précision du modèle.
-
-
 

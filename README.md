@@ -1,8 +1,13 @@
 # projetdata25
 Projet Data DDEFI (Prédiction Over/Under du Nombre d'Aces en Tennis)
 
+
 ## A/ Introduction
-Ce projet vise à développer un modèle de machine learning permettant de prédire si le nombre d'aces dans un match de tennis sera au-dessus ou en dessous d'un seuil donné. En exploitant des données historiques de matchs et des caractéristiques des joueurs avec notre modèle, notre objectif est d'améliorer la précision des prédictions pour aider les parieurs et les opérateurs de paris sportifs.
+Ce projet vise à développer un modèle de machine learning permettant de prédire si le nombre d'aces dans un match de tennis sera au-dessus ou en dessous d'un seuil donné. En exploitant des données historiques de matchs et des caractéristiques des joueurs avec notre modèle, notre objectif est d'améliorer la précision des prédictions pour aider les parieurs et les 
+opérateurs de paris sportifs.
+
+Les données sur les matches ATP sont issues du github de JeffSackmann : https://github.com/JeffSackmann/
+
 
 ## B/ Installation
 ### 1. Prérequis à installer

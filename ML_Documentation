@@ -1,4 +1,4 @@
-Documentation du Modèle de Machine Learning
+Documentation générale
 
 
 1. Objectif du Modèle
@@ -20,7 +20,7 @@ Avant toute modélisation, il était crucial d’analyser la nature des données
 
 - Les joueurs (âge, taille, classement ATP)
 - Les matchs (type de surface, durée, gagnant/perdant)
-- Les performances au service (nombre d’aces, double fautes, pourcentage de premiers services réussis, vitesse de service etc.)
+- Les performances au service (nombre d’aces, double fautes, pourcentage de premiers services réussis etc.)
 - Certaines statistiques historiques des joueurs
 - Une première analyse exploratoire a permis de :
     * Visualiser la distribution des aces en fonction des surfaces de jeu
@@ -33,7 +33,7 @@ Le prétraitement a consisté à :
 Gérer les valeurs manquantes : suppression ou imputation selon le cas.
 Encodage des variables catégorielles : transformation des types de surfaces et noms de joueurs en variables numériques.
 Standardisation des variables numériques : utilisation de StandardScaler pour homogénéiser les valeurs.
-Création d’une variable cible : transformation du nombre d’aces en une variable binaire indiquant si le nombre dépasse un certain seuil (Over/Under).
+Création d’une variable cible : le nombre d'aces des joueurs sur un match.
 Un sélectionneur de variables basé sur LASSO a ensuite été utilisé pour identifier les caractéristiques les plus influentes.
 
 c. Modélisation et Expérimentations
@@ -54,10 +54,7 @@ Voici les autres modèles explorés :
 
 d. Évaluation et Analyse des Résultats
 
-Les performances du modèle ont été mesurées à l'aide de :
-Accuracy Score pour mesurer la proportion de prédictions correctes.
-F1 Score qui permet d'évaluer la précision et le rappel simultanément.
-Matrice de confusion qui permet l'identification des erreurs courantes dans les classifications.
+Les performances du modèle ont été mesurées à l'aide de MAE (Mean Absolute Error) et RMSE (Root Mean Squared Error) pour avoir une idée de la fiabilité.
 
 Les meilleurs résultats que nous avons obtenus ont été récupérés avec le modème Random Forest, en utilisant plus de variables que la première analyse effectuées
 avec ce type de machine learning. Les variables sont le gagnant du match, le type de surface, le type de best of, le nombre de fois où le gagnant a servi 
@@ -79,7 +76,7 @@ Le traitement des données suit un pipeline structuré.
     - Chargement et exploration des données
     - Lecture du fichier atp_matches_2023.csv
     - Analyse statistique et détection des valeurs aberrantes
-       Prétraitement
+      Prétraitement
     - Nettoyage des données
     - Transformation des variables catégorielles
     - Standardisation des variables numériques
@@ -122,7 +119,7 @@ Les résultats sont médiocres, car les distributions des aces sont très disper
 Nous avons essayé d'intoduire l'historique des 10 derniers matchs.
 Cependant, il y a peu de gain en précision avec ceci, probablement en raison d’un manque de données complètes.
 
-Nous avons test un modèle basé uniquement sur les caractéristiques des joueurs mais les performances sont mauvaises, car les conditions de jeu 
+Nous avons testé un modèle basé uniquement sur les caractéristiques des joueurs mais les performances sont mauvaises, car les conditions de jeu 
 influencent fortement le nombre d’aces.
 
 

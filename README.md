@@ -82,7 +82,7 @@ Puis ouvrez `code_final.ipynb` et exécutez les cellules dans l'ordre.
   
 7. **Nouveau modèle de ML entrainé** :
    - Les données sont cette fois-ci mieux traitées et nettoyées et davantage en relation avec la problématique.
-   - 
+   - Le fichier entrainement_ML contient le code du modèle avec ces nouvelles données.
 
 8. **Prédiction et validation** :
    - Génération des prédictions sur l'ensemble de test.

@@ -43,14 +43,17 @@ Puis ouvrez `code_final.ipynb` et exécutez les cellules dans l'ordre.
 ### 2. Structure du projet
 ```
 /
-|-- ML_Documentation/           # Explication de notre modèle, de notre démarche, de notre réflexion et de nos résultats avec leurs analyses.
-|-- PrepareData.ipynb           # Code permettant de préparer le dataset au ML.
-|-- README.md/                  # Documentation technique pour utiliser notre modèle de machine learning.
-|-- atp_matches_2023.csv        # Pipeline de données de départ.
-|-- cleanData.csv               # Dataset train_data mis en forme pour le ML.
-|-- code_final.ipynb            # Code source pour l'analyse des données.
-|-- entrainement_ML.ipynb       # Entrainement du modèle de ML.
-|-- train_data.csv              # Données brutes extraites pour notre modèle.
+|-- ML_Documentation/              # Explication de notre modèle, de notre démarche, de notre réflexion et de nos résultats avec leurs analyses.
+|-- PrepareData.ipynb              # Code permettant de préparer le dataset au ML.
+|-- Presentation ACE.pdf           # Diaporama de notre projet
+|-- README.md/                     # Documentation technique pour utiliser notre modèle de machine learning.
+|-- analyse_descriptive_data.ipynb # Analyses des données
+|-- atp_matches_2023.csv           # Pipeline de données de départ.
+|-- cleanData.csv                  # Dataset train_data mis en forme pour le ML.
+|-- code_final.ipynb               # Code source pour l'analyse des données.
+|-- entrainement_ML.ipynb          # Entrainement du modèle de ML.
+|-- pipeline.ipynb                 # Récupération des données du github de JeffSackmann
+|-- train_data.csv                 # Données brutes extraites pour notre modèle.
 ```
 
 ### 3. Fonctionnement du Modèle
